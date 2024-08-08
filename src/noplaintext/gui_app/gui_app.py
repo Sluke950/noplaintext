@@ -11,7 +11,17 @@ LOGGER = logging.getLogger(__name__)
 from noplaintext.crypto_utils import generate_key, load_key, encrypt, decrypt
 
 class GuiApp:
+    """
+    A graphical user interface application for cryptography tasks, including key generation,
+    key loading, encryption, and decryption of messages.
+    """
     def __init__(self, root):
+        """
+        Initialize the GUI application.
+
+        Args:
+            root (tk.Tk): The root Tkinter window instance.
+        """
         self.root = root
         self.root.title("Cryptography App")
         
@@ -22,6 +32,9 @@ class GuiApp:
         self.create_widgets()
         
     def create_widgets(self):
+        """
+        Create and place the widgets (buttons, text fields) in the GUI.
+        """
         # Generate key button
         self.generate_key_button = tk.Button(self.root, text="Generate Key", command=self.generate_key)
         self.generate_key_button.pack(pady=10)
@@ -51,6 +64,10 @@ class GuiApp:
         self.result_text.config(state=tk.DISABLED)  # Initially disabled to prevent user editing
 
     def generate_key(self):
+        """
+        Generate a new encryption key and save it to a user-specified file.
+        Prompts the user to select a file path for saving the key.
+        """
         file_path = filedialog.asksaveasfilename(defaultextension=".key", filetypes=[("Key Files", "*.key")])
         if file_path:
             try:
@@ -61,6 +78,10 @@ class GuiApp:
                 self.update_result_text(f"Error: Failed to generate key: {e}")
 
     def load_key(self):
+        """
+        Load an encryption key from a user-specified file.
+        Prompts the user to select a file containing the key.
+        """
         file_path = filedialog.askopenfilename(filetypes=[("Key Files", "*.key")])
         if file_path:
             try:
@@ -71,6 +92,10 @@ class GuiApp:
                 self.update_result_text(f"Error: Failed to load key: {e}")
 
     def encrypt_message(self):
+        """
+        Encrypt a message using the loaded key.
+        Retrieves the message from the entry field, encrypts it, and displays the result.
+        """
         if not self.key_file_path:
             self.update_result_text("Error: No key file loaded.")
             return
@@ -89,6 +114,10 @@ class GuiApp:
             self.update_result_text(f"Error: Failed to encrypt message: {e}")
 
     def decrypt_message(self):
+        """
+        Decrypt an encrypted message using the loaded key.
+        Retrieves the encrypted message from the entry field, decrypts it, and displays the result.
+        """
         if not self.key_file_path:
             self.update_result_text("Error: No key file loaded.")
             return
@@ -107,6 +136,12 @@ class GuiApp:
             self.update_result_text(f"Error: Failed to decrypt message: {e}")
 
     def update_result_text(self, text):
+        """
+        Update the result text widget with a new message.
+
+        Args:
+            text (str): The message to display in the result text widget.
+        """
         self.result_text.config(state=tk.NORMAL)  # Enable editing to update text
         self.result_text.insert(tk.END, text + "\n")  # Insert new text with a newline
         self.result_text.yview(tk.END)  # Scroll to the end of the text widget
