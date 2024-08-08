@@ -8,9 +8,9 @@ logging.basicConfig(level=logging.DEBUG)
 LOGGER = logging.getLogger(__name__)
 
 # Import your cryptography functions here
-from crypto_utils.crypto_utils import generate_key, load_key, encrypt, decrypt
+from noplaintext.crypto_utils import generate_key, load_key, encrypt, decrypt
 
-class CryptoApp:
+class GuiApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Cryptography App")
@@ -114,5 +114,5 @@ class CryptoApp:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    app = CryptoApp(root)
+    app = GuiApp(root)
     root.mainloop()
