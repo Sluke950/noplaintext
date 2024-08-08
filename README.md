@@ -18,5 +18,5 @@ To set up the project, follow these steps:
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/Sluke950/crypto_app.git
-   cd crypto_app
+   git clone https://github.com/Sluke950/noplaintext.git
+   cd noplaintext
