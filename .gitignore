@@ -1,0 +1,69 @@
+# Python Bytecode
+__pycache__/
+*.py[cod]
+
+# Distribution / Packaging
+*.egg-info/
+dist/
+build/
+eggs/
+*.egg
+
+# Virtual Environments
+venv/
+ENV/
+env/
+.venv/
+
+# Test and Coverage Reports
+.coverage
+*.cover
+*.py,cover
+nosetests.xml
+coverage.xml
+*.log
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+*.env
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Git Attributes
+.gitattributes
+
+# Logs
+*.log
+
+# Database Files
+*.sqlite3
+*.db
+
+# Other Files
+*.pkl
+*.pickle
+*.pyc
+*.pyo
+*.pyd
+*.pyo
+*.tmp
+*.bak
+*.swp
+*.swo
+
+# vscode
+.vscode
+
+# tests
+tests/
